@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/login.css}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="form-box">
+
+       <h2 class="title">Organ Sharing</h2>
+		<p class="sub"></p>
+		<p class="subtitle">Login to your account</p>
+
+        <!-- FORM -->
+        <form th:action="@{/login_action}" method="post">
+
+            <!-- EMAIL -->
+            <input type="email"
+                   name="email"
+                   placeholder="Enter Email (abc@gmail.com)"
+                   required
+                   pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                   title="Enter a valid email like abc@gmail.com"
+                   oninvalid="this.setCustomValidity('Please enter valid email like abc@gmail.com')"
+                   oninput="this.setCustomValidity('')">
+
+            <!-- PASSWORD -->
+            <input type="password"
+                   name="password"
+                   placeholder="Enter Password"
+                   required
+                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"
+                   title="Password must be 8+ characters with uppercase, lowercase, number & special character"
+                   oninvalid="this.setCustomValidity('Password must contain 8+ chars, uppercase, lowercase, number & special char')"
+                   oninput="this.setCustomValidity('')">
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="register-text">
+            Don’t have an account?
+            <a th:href="@{/register}">Register</a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+
+
+</html>

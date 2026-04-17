@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Organ Sharing</title>
+
+    <!-- IMPORTANT: Load BOTH CSS -->
+<link rel="stylesheet" th:href="@{/register.css}">
+</head>
+<body>
+
+<div class="form-box">
+
+    <h2 class="logo">Organ Sharing</h2>
+    <p class="sub">Donor & Finder Application</p>
+
+    <h1>Create Account</h1>
+    <p class="desc">Register to continue</p>
+
+    <form th:action="@{/register}" method="post">
+
+        <!-- FULL NAME -->
+        <input type="text"
+               name="name"
+               placeholder="Full Name"
+               required
+               pattern="^[A-Za-z ]{3,30}$"
+               title="Name should be 3-30 characters and contain only letters"
+               oninvalid="this.setCustomValidity('Enter valid name (only letters)')"
+               oninput="this.setCustomValidity('')">
+
+        <!-- EMAIL -->
+        <input type="email"
+               name="email"
+               placeholder="Email (abc@gmail.com)"
+               required
+               pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+               title="Enter a valid email like abc@gmail.com"
+               oninvalid="this.setCustomValidity('Enter valid email')"
+               oninput="this.setCustomValidity('')">
+
+        <!-- PASSWORD -->
+        <input type="password"
+               name="password"
+               placeholder="Password"
+               required
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"
+               title="Password must be 8+ chars with uppercase, lowercase, number & special character"
+               oninvalid="this.setCustomValidity('Password must be strong (8+ chars, A-Z, a-z, number, special char)')"
+               oninput="this.setCustomValidity('')">
+
+        <!-- CONFIRM PASSWORD -->
+        <input type="password"
+               name="confirmPassword"
+               placeholder="Confirm Password"
+               required
+               oninput="this.setCustomValidity(this.value !== document.getElementsByName('password')[0].value ? 'Passwords do not match' : '')">
+
+        <!-- ROLE -->
+        <select name="role" required>
+            <option value="">Select Role</option>
+            <option value="DONOR">Donor</option>
+            <option value="FINDER">Finder</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p class="signup">
+        Already have an account?
+        <a th:href="@{/}">Login</a>
+    </p>
+
+</div>
+
+</body>
+</html>

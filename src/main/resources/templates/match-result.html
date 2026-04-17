@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Match Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body{
+			background-image: url('https://www.organdonationalliance.org/wp-content/uploads/2021/12/NRP_AS_325141580.jpg');
+			  			background-size: cover;
+		}
+	</style>
+</head>
+<body class="bg-light">
+	
+<div class="container mt-5">
+
+    <!-- 🔵 Receiver Details Table -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white 		
+			">
+            <h5 class="mb-0">Receiver Details</h5>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-bordered mb-0">
+                <tr>
+                    <th>ID</th>
+                    <td th:text="${receiver.id}"></td>
+                </tr>
+                <tr>
+                    <th>Blood Group</th>
+                    <td th:text="${receiver.bloodGroup}"></td>
+                </tr>
+                <tr>
+                    <th>Required Organ</th>
+                    <td th:text="${receiver.requiredOrgan}"></td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td th:text="${receiver.city}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 🔴 Matched Donors Table -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Matched Donors</h5>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-hover table-bordered mb-0">
+                <thead class="table-light">
+                    <tr>
+						<th> ID</th>
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>Organ</th>
+                        <th>City</th>
+						<th>Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="donor : ${matchedDonors}">
+						 <td th:text="${donor.id}"></td>
+                        <td th:text="${donor.name}"></td>
+                        <td th:text="${donor.bloodGroup}"></td>
+                        <td th:text="${donor.organ}"></td>
+                        <td th:text="${donor.city}"></td>
+						<td th:text="${donor.number}"></td>
+                    </tr>
+
+                    <tr th:if="${#lists.isEmpty(matchedDonors)}">
+                        <td colspan="6" class="text-center text-muted">
+                            No matching donors found
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 🔙 Back Button -->
+    <div class="mt-4">
+        <a th:href="@{/receiver/list}" class="btn btn-secondary">
+            Back to List
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

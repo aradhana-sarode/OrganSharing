@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h2>Welcome to Dashboard</h2>
+
+<div>
+    <a th:href="@{/donor/form}"><button>Register as Donor</button></a>
+    <a th:href="@{/receiver/form}"><button>Register as Receiver</button></a>
+    <!--<a th:href="@{/match}"><button>Find Match</button></a>-->
+</div>
+
+<br><br>
+
+<a th:href="@{/}">Logout</a>
+
+</body>
+</html>

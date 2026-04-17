@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h2>Organ Sharing System - Login</h2>
+
+<form th:action="@{/login_action}" method="post">
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <input type="password" name="password" placeholder="Enter Password" required>
+    <button type="submit">Login</button>
+</form>
+
+<p th:text="${error}" style="color:red;"></p>
+
+<p>Don't have account? <a th:href="@{/register}">Register Here</a></p>
+
+</body>
+</html>

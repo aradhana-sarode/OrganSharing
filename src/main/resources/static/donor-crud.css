@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f4f7fb);
+}
+
+/* HEADER */
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 20px;
+    margin-bottom: 25px;
+
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* CARD */
+.custom-card {
+    width: 100%;
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* TABLE */
+.custom-table {
+    width: 100%;
+}
+
+.custom-table thead {
+    background: #34a853;
+    color: white;
+}
+
+.custom-table thead th {
+    padding: 12px;
+}
+
+.custom-table tbody tr:hover {
+    background: #f1fff5;
+}
+
+/* BADGE */
+.badge {
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+/* BUTTON */
+.btn {
+    border-radius: 8px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+/* NO DATA */
+.no-data {
+    color: red;
+    font-weight: bold;
+    padding: 25px;
+}
+
+.container-fluid {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.custom-card {
+    width: 100%;
+    max-width: 100%;
+}

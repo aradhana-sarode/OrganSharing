@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/dashboard.css}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <h2>Organ Sharing System</h2>
+        <a th:href="@{/}" class="logout">Logout</a>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome">
+        <h1>Welcome to Dashboard</h1>
+        <p>Helping save lives through organ donation ❤️</p>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="cards">
+
+        <div class="card donor">
+            <h3>🩸 Become a Donor</h3>
+            <p>Register yourself and help someone in need.</p>
+            <a th:href="@{/donor/form}">
+                <button>Register as Donor</button>
+            </a>
+        </div>
+
+        <div class="card receiver">
+            <h3>🔍 Find an Organ</h3>
+            <p>Search and connect with available donors.</p>
+            <a th:href="@{/receiver/form}">
+                <button>Register as Receiver</button>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

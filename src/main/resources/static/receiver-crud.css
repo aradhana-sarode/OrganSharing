@@ -1,0 +1,79 @@
+body {
+    font-family: Arial;
+    background: #f4f6f8;
+	
+	background-image: url('https://www.organdonationalliance.org/wp-content/uploads/2021/12/NRP_AS_325141580.jpg');
+	  			background-size: cover;
+		
+}
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #2e7d32;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #e8f5e9;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.red { background: #e53935; }
+.green { background: #43a047; }
+.yellow { background: #fbc02d; color: black; }
+
+.btn {
+    padding: 5px 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.blue { background: #1976d2; }
+.red { background: #e53935; }
+
+.links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    text-decoration: none;
+    color: rgb(0, 128, 0);
+}
+
+.empty {
+    color: gray;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Donor Listing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h3 class="mb-0">Registered Donors</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover table-bordered mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Blood Group</th>
+                        <th>Organ</th>
+                        <th>City</th>
+						<th>Number</th>
+						<th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="donor : ${donors}">
+                        <td th:text="${donor?.id}">1</td>
+                        <td th:text="${donor?.name}">John Doe</td>
+                        <td th:text="${donor?.age}">30</td>
+                        <td>
+                            <span class="badge bg-primary" th:text="${donor?.bloodGroup}">O+</span>
+                        </td>
+                        <td th:text="${donor?.organ}">Kidney</td>
+                        <td th:text="${donor?.city}">New York</td>
+						<td th:text="${donor?.number}" ></td>
+						
+						<td>
+						<!--<form th:action="@{/donor/delete/{id}(id=${donor?.id})}">
+						    <button type="submit" class="btn btn-danger btn-sm">
+						        Delete
+						    </button>
+						</form>-->
+						<a th:href="@{/donor/delete/{id}(id=${donor.id})}"
+						   class="btn btn-danger btn-sm">
+						   Delete
+						</a>
+						</td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(donors)}">
+                        <td colspan="6" class="text-center text-muted">No donors found.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

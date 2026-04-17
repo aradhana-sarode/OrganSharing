@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Donor Listing</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" th:href="@{/donor-crud.css}">
+	</head>
+<body>
+
+<div class="container-fluid px-4 mt-4">
+
+    <!-- HEADER -->
+    <div class="header-box">
+        <h2>Donor List</h2>
+        <a th:href="@{/dashboard}" class="btn btn-light fw-semibold shadow-sm">
+            ⬅ Dashboard
+        </a>
+    </div>
+
+    <!-- CARD -->
+    <div class="custom-card">
+
+        <div class="table-responsive">
+
+            <table class="table custom-table text-center align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Blood Group</th>
+                        <th>Organ</th>
+                        <th>City</th>
+                        <th>Contact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr th:if="${#lists.isEmpty(donors)}">
+                        <td colspan="7" class="no-data">
+                            🚫 No Donors Available
+                        </td>
+                    </tr>
+
+                    <tr th:each="d : ${donors}">
+                        <td class="fw-bold" th:text="${d.name}"></td>
+                        <td th:text="${d.age}"></td>
+
+                        <td>
+                            <span class="badge bg-danger" th:text="${d.bloodGroup}"></span>
+                        </td>
+
+                        <td th:text="${d.organ}"></td>
+                        <td th:text="${d.city}"></td>
+                        <td th:text="${d.number}"></td>
+
+                        <!-- ACTIONS -->
+                        <td>
+                         <div class="d-flex gap-4 justify-content-center">
+                               <!-- <a th:href="@{/donor/edit/{id}(id=${d.id})}"-->
+                                 <!--class="btn btn-sm btn-primary">-->  
+                                    <!--✏️ Edit-->
+                              <!--  </a>-->
+
+                                <a th:href="@{/donor/delete/{id}(id=${d.id})}"
+                                   class="btn btn-sm btn-danger"
+                                   onclick="return confirm('Are you sure?')">
+                                    🗑 Delete
+                                </a>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

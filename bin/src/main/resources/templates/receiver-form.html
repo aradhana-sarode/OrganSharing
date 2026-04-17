@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Receiver Form</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<h2>Receiver Registration</h2>
+
+<a th:href="@{/receiver/list}"> Receiver List </a>
+
+<form th:action="@{/receiver/save}" method="post">
+	
+	
+    <input type="text" name="name" placeholder="Receiver Name" required>
+    <input type="number" name="age" placeholder="Age" required>
+
+    <select name="bloodGroup">
+        <option value="A+">A+</option>
+        <option value="B+">B+</option>
+        <option value="O+">O+</option>
+        <option value="AB+">AB+</option>
+    </select>
+
+    <input type="text" name="requiredOrgan" placeholder="Organ (Kidney, Liver, etc.)" required>
+	<input type="text" name="City" placeholder="City" required>
+    <input type="text" name="number" placeholder="Contact Number" required>
+
+    <button type="submit">Save Receiver</button>
+</form>
+
+<p th:text="${message}" style="color:green;"></p>
+
+<a th:href="@{/dashboard}">Back to Dashboard</a>
+
+</body>
+</html>

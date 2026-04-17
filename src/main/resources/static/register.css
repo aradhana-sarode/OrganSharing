@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: rgb(0, 64, 64);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background-image: url('https://www.organdonationalliance.org/wp-content/uploads/2021/12/NRP_AS_325141580.jpg');
+	  			background-size: cover;
+}
+
+/* SMALL CENTER BOX */
+.form-box {
+    width: 320px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* TEXT */
+.logo {
+    color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+}
+
+.sub {
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.desc {
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* VALIDATION */
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid #2bb673;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #2bb673;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* LOGIN LINK */
+.signup {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.signup a {
+    color: #2bb673;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}

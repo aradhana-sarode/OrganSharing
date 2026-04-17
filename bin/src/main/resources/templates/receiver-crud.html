@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recipient Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table-container { margin-top: 50px; }
+        .status-badge { width: 100px; }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container table-container">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Organ Request Listing</h4>
+            <span class="badge bg-light text-primary" th:text="${#lists.size(recipients)} + ' Requests'">0</span>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#ID</th>
+							<th>Name</th>
+                            <th>Blood Group</th>
+                            <th>Required Organ</th>
+                            <th>City</th>
+							<th>Number</th>
+                            <th>Status</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="item : ${recipients}">
+                            <td class="fw-bold" th:text="${item.id}">1</td>
+							<td th:text="${item.name}">Mumbai</td>
+                            <td>
+                                <span class="badge rounded-pill bg-danger" th:text="${item.bloodGroup}">O+</span>
+                            </td>
+                            <td th:text="${item.requiredOrgan}">Kidney</td>
+                            <td th:text="${item.city}">Mumbai</td>
+							<td th:text="${item.number}">Mumbai</td>
+                            <td>
+                                <span th:classappend="${item.status == 'WAITING' ? 'bg-warning text-dark' : 'bg-success'}" 
+                                      class="badge status-badge" 
+                                      th:text="${item.status}">
+                                    WAITING
+                                </span>
+                            </td>
+                            <td class="text-center">
+                               <!-- <a th:href="@{/match/{id}(id=${item.id})}" class="btn btn-sm btn-outline-primary">Find Match</a>-->
+							   
+							   <a th:href="@{/receiver/findMatch/{id}(id=${item.id})}"
+							      class="btn btn-sm btn-outline-primary">
+							      Find Match
+							   </a>
+							   
+								<a th:href="@{/receiver/delete/{id}(id=${item.id})}" 
+							       class="btn btn-sm btn-outline-danger"
+							       onclick="return confirm('Are you sure you want to delete this request?')">
+							        Delete
+							    </a>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(recipients)}">
+                            <td colspan="6" class="text-center py-4 text-muted">
+                                No requests found in the system.
+                            </td>
+                        </tr>
+						
+						<!--<td class="text-center">
+						    <a th:href="@{/match/{id}(id=${item.id})}" 
+						       class="btn btn-sm btn-outline-primary">
+						        Find Match
+						    </a>
+
+						    <a th:href="@{/recipient/delete/{id}(id=${item.id})}" 
+						       class="btn btn-sm btn-outline-danger"
+						       onclick="return confirm('Are you sure you want to delete this request?')">
+						        Delete
+						    </a>
+						</td>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
